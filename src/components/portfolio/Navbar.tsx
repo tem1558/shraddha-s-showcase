@@ -29,18 +29,22 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo / Name */}
-        <a href="#" className="flex items-center gap-3">
-          <span className="text-xl font-heading font-bold text-foreground tracking-tight">
-            SS
-          </span>
-          <span className="hidden md:block text-xs font-body text-muted-foreground tracking-widest uppercase">
-            Portfolio
-          </span>
-        </a>
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors relative group"
+            >
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
+        </div>
 
-        {/* Hindi name on right - toggles to English */}
-        <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
+        {/* Hindi / English Name on Right */}
+        <div className="hidden lg:flex items-center">
           <AnimatePresence mode="wait">
             {!scrollPast50 ? (
               <motion.span
@@ -64,20 +68,6 @@ const Navbar = () => {
               </motion.span>
             )}
           </AnimatePresence>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors relative group"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
         </div>
 
         {/* Mobile toggle */}

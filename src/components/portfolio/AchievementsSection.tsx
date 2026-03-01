@@ -1,51 +1,111 @@
-import { motion } from "framer-motion";
-import { achievements } from "@/data/portfolio";
 import { Trophy } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const AchievementsSection = () => {
-  return (
-    <section id="achievements" className="py-24 px-6 bg-secondary/30">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h2 className="section-title mb-4">Achievements</h2>
-          <p className="section-subtitle">Awards, fellowships, and recognition.</p>
-        </motion.div>
+  const achievements = [
+    {
+      id: 1,
+      title: "Best UG Poster Award",
+      description: "AAAI EGSAI, Singapore",
+      year: "2026",
+    },
+    {
+      id: 2,
+      title: "HPAIR Delegate",
+      description: "Harvard Project, Tokyo",
+      year: "2025",
+    },
+    {
+      id: 3,
+      title: "IAS Fellow",
+      description: "IASc-INSA-IAS Fellowship",
+      year: "2025",
+    },
+    {
+      id: 4,
+      title: "Best Paper Award",
+      description: "IEEE India Council",
+      year: "2024",
+    },
+    {
+      id: 5,
+      title: "SIH Winner",
+      description: "Smart India Hackathon Finals",
+      year: "2024",
+    },
+    {
+      id: 6,
+      title: "Top 0.1%",
+      description: "CBSE Class X",
+      year: "2020",
+    },
+  ];
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {achievements.map((ach, index) => (
-            <motion.div
-              key={ach.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ scale: 1.03 }}
-              className="bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
-            >
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Trophy size={18} className="text-primary" />
-                </div>
+  const scrollerRef = useRef(null);
+
+  useEffect(() => {
+    let x = 0;
+    const speed = 0.5; // 🔥 control speed here (higher = faster)
+
+    const animate = () => {
+      if (!scrollerRef.current) return;
+
+      x -= speed;
+      const width = scrollerRef.current.scrollWidth / 2;
+
+      // 🔥 NO RESET JUMP — smooth wrap
+      if (Math.abs(x) >= width) {
+        x = 0;
+      }
+
+      scrollerRef.current.style.transform = `translateX(${x}px)`;
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  }, []);
+
+  return (
+    <section className="py-24 px-6 bg-secondary/30 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+
+        <div className="mb-12 text-center md:text-left">
+          <h2 className="section-title mb-4">Achievements</h2>
+          <p className="section-subtitle">
+            Awards, fellowships, and recognitions.
+          </p>
+        </div>
+
+        <div className="overflow-hidden">
+          <div ref={scrollerRef} className="flex gap-10">
+
+            {/* original */}
+            {achievements.map((ach) => (
+              <div key={ach.id} className="flex items-center gap-4 min-w-max">
+                <Trophy size={20} />
                 <div>
-                  <h3 className="text-sm font-heading font-semibold text-foreground mb-1">
-                    {ach.title}
-                  </h3>
-                  <p className="text-xs font-body text-muted-foreground leading-relaxed">
-                    {ach.description}
-                  </p>
-                  <span className="inline-block mt-2 text-xs font-heading text-primary font-medium">
-                    {ach.year}
-                  </span>
+                  <div className="text-sm font-semibold">{ach.title}</div>
+                  <div className="text-xs">{ach.description}</div>
+                  <div className="text-xs text-primary">{ach.year}</div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+
+            {/* duplicate */}
+            {achievements.map((ach) => (
+              <div key={`${ach.id}-dup`} className="flex items-center gap-4 min-w-max">
+                <Trophy size={20} />
+                <div>
+                  <div className="text-sm font-semibold">{ach.title}</div>
+                  <div className="text-xs">{ach.description}</div>
+                  <div className="text-xs text-primary">{ach.year}</div>
+                </div>
+              </div>
+            ))}
+
+          </div>
         </div>
+
       </div>
     </section>
   );
