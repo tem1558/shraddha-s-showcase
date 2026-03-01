@@ -10,7 +10,7 @@ const Hero = () => {
       {/* Background watercolor */}
       <div className="absolute inset-0 pointer-events-none">
         <img
-          src={watercolorBg}
+          src={}
           alt=""
           className="absolute top-1/2 right-0 -translate-y-1/2 w-[70%] h-auto opacity-30 object-contain"
         />
