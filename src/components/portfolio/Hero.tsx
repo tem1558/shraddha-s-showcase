@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
 import { Linkedin, Github, Mail, GraduationCap } from "lucide-react";
 import watercolorBg from "@/assets/watercolor-bg.png";
-import profilePhoto from "@/assets/profile-photo.png";
+import profilePhoto from "@public/Profile.jpeg";
 
 const Hero = () => {
   return (
