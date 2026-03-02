@@ -1,102 +1,91 @@
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
 import { Linkedin, Github, Mail, GraduationCap } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background watercolor / profile image on right */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img
-          src="/Profile.jpeg"
-          alt=""
-          className="absolute top-1/2 right-0 -translate-y-1/2 w-[50%] md:w-[40%] lg:w-[45%] h-auto opacity-30 object-contain"
-        />
-      </div>
+    <section className="relative min-h-screen w-full">
 
-      <div className="max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row gap-12 items-center pt-24">
-        {/* Left content */}
+      <div className="relative flex min-h-screen w-full flex-col md:flex-row">
+
+        {/* MOBILE IMAGE BACKGROUND */}
+        <div className="absolute inset-0 md:hidden">
+          <img
+            src="/Profile.jpeg"
+            alt="Profile"
+            className="w-full h-full object-cover opacity-15"
+          />
+        </div>
+
+        {/* TEXT SIDE */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative z-10 w-full md:w-1/2"
+          transition={{ duration: 0.7 }}
+          className="relative z-10 w-full md:w-[45%] 
+                     flex flex-col justify-center 
+                     px-6 sm:px-10 md:px-16 
+                     py-20 md:py-0"
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-sm font-body tracking-[0.3em] uppercase text-muted-foreground mb-4"
-          >
+          <p className="text-xs tracking-[0.25em] uppercase mb-2">
             Hello, I'm
-          </motion.p>
+          </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground leading-[1.1] mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-3">
             {personalInfo.name}
           </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <p className="text-lg sm:text-xl font-body text-muted-foreground mb-2">
-              {personalInfo.title}
-            </p>
-            <p className="text-base font-body text-primary font-medium mb-6">
-              {personalInfo.institution}
-            </p>
-            <p className="text-base font-body text-muted-foreground max-w-md mb-8 leading-relaxed">
-              {personalInfo.tagline}
-            </p>
-          </motion.div>
+          <p className="text-base sm:text-lg mb-1">
+            {personalInfo.title}
+          </p>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-wrap items-center gap-4"
-          >
+          <p className="text-sm text-primary font-medium mb-4">
+            {personalInfo.institution}
+          </p>
+
+          <p className="max-w-md text-sm mb-6 leading-relaxed">
+            {personalInfo.tagline}
+          </p>
+
+          <div className="flex gap-3 flex-wrap">
             {[
-              { icon: Linkedin, href: personalInfo.linkedin, label: "LinkedIn" },
-              { icon: Github, href: personalInfo.github, label: "GitHub" },
-              { icon: GraduationCap, href: personalInfo.googleScholar, label: "Scholar" },
-              { icon: Mail, href: `mailto:${personalInfo.email}`, label: "Email" },
-            ].map(({ icon: Icon, href, label }) => (
+              { icon: Linkedin, href: personalInfo.linkedin },
+              { icon: Github, href: personalInfo.github },
+              { icon: GraduationCap, href: personalInfo.googleScholar },
+              { icon: Mail, href: `mailto:${personalInfo.email}` },
+            ].map(({ icon: Icon, href }, i) => (
               <a
-                key={label}
+                key={i}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 hover:scale-110"
-                aria-label={label}
+                className="w-9 h-9 rounded-full border 
+                           flex items-center justify-center 
+                           hover:text-primary hover:border-primary 
+                           transition"
               >
-                <Icon size={18} />
+                <Icon size={16} />
               </a>
             ))}
-          </motion.div>
+          </div>
         </motion.div>
 
-        {/* Right column: empty, just for spacing */}
-        <div className="w-full md:w-1/2" />
+        {/* DESKTOP IMAGE SIDE */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          className="hidden md:block w-[55%] h-screen"
+        >
+          <img
+            src="/Profile.jpeg"
+            alt="Profile"
+            className="w-full h-full object-cover opacity-50"
+          />
+        </motion.div>
+
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2"
-        >
-          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };
