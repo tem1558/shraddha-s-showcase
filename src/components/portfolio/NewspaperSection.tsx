@@ -10,7 +10,7 @@ const NewspaperSection = () => {
       titleHindi: "मूल हिंदी समाचार शीर्षक",
       titleEnglish: "Translated English Headline",
       imageHindi: "/aaai.jpeg",
-      imageEnglish: "/eng_news/eaaai.jpeg",
+      imageEnglish: "/eaaai.jpeg",
       publicationDate: "Nayi Baat, Jan 2026",
     },
     {
@@ -18,7 +18,7 @@ const NewspaperSection = () => {
       titleHindi: "3 हिंदी समाचार शीर्षक",
       titleEnglish: "3 Translated Headline",
       imageHindi: "/mvcbpa.jpeg",
-      imageEnglish: "/eng_news/emvcbpa.png",
+      imageEnglish: "/emvcbpa.png",
       publicationDate: "Dainik Bhaskar, March 2025",
     },
     {
@@ -26,7 +26,7 @@ const NewspaperSection = () => {
       titleHindi: "दूसरा हिंदी समाचार शीर्षक",
       titleEnglish: "Second Translated Headline",
       imageHindi: "/iot.jpeg",
-      imageEnglish: "/eng_news/eiot.jpg",
+      imageEnglish: "/eiot.jpg",
       publicationDate: "Dainik Bhaskar, Jan 2025",
     },
     {
@@ -34,7 +34,7 @@ const NewspaperSection = () => {
       titleHindi: "4 हिंदी समाचार शीर्षक",
       titleEnglish: "4 Translated Headline",
       imageHindi: "/10th.jpeg",
-      imageEnglish: "/eng_news/e10th.png",
+      imageEnglish: "/e10th.png",
       publicationDate: "Dainik Bhaskar, July 2020",
     },
      {
@@ -42,7 +42,7 @@ const NewspaperSection = () => {
       titleHindi: "5 हिंदी समाचार शीर्षक",
       titleEnglish: "5 Translated Headline",
       imageHindi: "/12th.jpeg",
-      imageEnglish: "/eng_news/e12th.jpeg",
+      imageEnglish: "/e12th.jpeg",
       publicationDate: "Dainik Bhaskar, May 2022",
     },
      
