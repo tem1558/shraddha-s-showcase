@@ -7,11 +7,11 @@ export const personalInfo = {
   nameHindi: "श्रद्धा साहू",
   title: "B.Tech Final Year · Computer Science & Engineering",
   institution: "IIIT Bhagalpur",
-  tagline: "Researching at the intersection of AI, Data Science & Ubiquitous Computing.",
+  tagline: "Currently working as Data Science Intern at Western Digital, Bengaluru.",
   email: "shraddhasahu.work@gmail.com", // Update with actual email
-  linkedin: "https://linkedin.com/in/shraddhasahu", // Update with actual
+  linkedin: "https://linkedin.com/in/shraddha1558", // Update with actual
   googleScholar: "https://scholar.google.com/citations?user=XXXX", // Update with actual
-  github: "https://github.com/shraddhasahu", // Update with actual
+  github: "https://github.com/shraddha1558", // Update with actual
   resumePath: "/Shraddha_Sahu_Resume.pdf",
 };
 
