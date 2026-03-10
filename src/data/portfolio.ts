@@ -8,7 +8,7 @@ export const personalInfo = {
   title: "B.Tech Final Year · Computer Science & Engineering",
   institution: "IIIT Bhagalpur",
   tagline: "Currently working as Data Science Intern at Western Digital, Bengaluru.",
-  email: "shraddhasahu.work@gmail.com", // Update with actual email
+  email: "shraddhasahu1558@gmail.com", // Update with actual email
   linkedin: "https://linkedin.com/in/shraddha1558", // Update with actual
   googleScholar: "https://scholar.google.com/citations?user=XXXX", // Update with actual
   github: "https://github.com/shraddha1558", // Update with actual
